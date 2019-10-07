@@ -1,4 +1,4 @@
-###Code 201 Week 03 - BusMall Project (like SkyMall but for the busses)
+### Code 201 Week 03 - BusMall Project (like SkyMall but for the busses)
 
 _A site that the BusMall startup is using for market research to help determine what items to ultimately publish in their catalog._
 
