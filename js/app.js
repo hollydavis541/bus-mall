@@ -2,6 +2,7 @@
 
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
+console.log(img01Tag);
 var img02Tag = document.getElementById('img02');
 var img03Tag = document.getElementById('img03');
 
@@ -23,6 +24,7 @@ var ProductImage = function(name, imgURL){
 };
 
 ProductImage.allImages = [];
+console.log(ProductImage.allImages);
 
 //Helper functions - These are not part of object or the constructor
 var renderNewImages = function(img01Index, img02Index, img03Index){
@@ -60,7 +62,7 @@ var handleClickOnImg = function(event){
 
     if(id === 'img01' || id === 'img02' || id === 'img03'){
       if (id === 'img01'){
-        img01OnThePage.clicks ++
+        img01OnThePage.clicks ++;
       }
       if (id === 'img02'){
         img02OnThePage.clicks ++;
@@ -81,25 +83,25 @@ var handleClickOnImg = function(event){
 
 imgDivTag.addEventListener('click', handleClickOnImg);
 
-new ProductImage('R2-D2', '../img/bag.jpg');
-new ProductImage('Banana Slicer', '../img/banana.jpg');
-new ProductImage('Bathroom iPad TP Stand', '../img/bathroom.jpg');
-new ProductImage('Open-Toe Rain Boots', '../img/boots.jpg');
-new ProductImage('All-in-One Breakfast Center', '../img/breakfast.jpg');
-new ProductImage('Meatball Bubble Gum', '../img/bugglegum.jpg');
-new ProductImage('Bubble Chair', '../img/chair.jpg')
-new ProductImage('Cthulhu Figurine', '../img/cthulhu.jpg');
-new ProductImage('Puppy Duckbill', '../img/dog-duck.jpg');
-new ProductImage('Dragon Meat', '../img/dragon.jpg');
-new ProductImage('Utensil Pen Cap', '../img/pen.jpg')
-new ProductImage('Pet Paw Sweeper', '../img/pet-sweep.jpg');
-new ProductImage('Pizza Serving Scissors', '../img/scissors.jpg');
-new ProductImage('Shark Sleeping Bag', '../img/shark.jpg');
-new ProductImage('Baby Sweeper Onesie', '../img/sweep.png');
-new ProductImage('Tauntaun Sleeping Bag', '../img/tauntaun.jpg');
-new ProductImage('Unicorn Meat', '../img/unicorn.jpg');
-new ProductImage('USB Tenticle', '../img/usb.gif');
-new ProductImage('Self-Watering Can', '../img/water-can.jpg');
-new ProductImage('Wine Pod Glass', '../img/wine-glass.jpg');
+new ProductImage('R2-D2 Suitcase', './img/bag.jpg');
+new ProductImage('Banana Slicer', './img/banana.jpg');
+new ProductImage('Bathroom iPad TP Stand', './img/bathroom.jpg');
+new ProductImage('Open-Toe Rain Boots', './img/boots.jpg');
+new ProductImage('All-in-One Breakfast Center', './img/breakfast.jpg');
+new ProductImage('Meatball Bubble Gum', './img/bubblegum.jpg');
+new ProductImage('Bubble Chair', './img/chair.jpg');
+new ProductImage('Cthulhu Figurine', './img/cthulhu.jpg');
+new ProductImage('Puppy Duckbill', './img/dog-duck.jpg');
+new ProductImage('Dragon Meat', './img/dragon.jpg');
+new ProductImage('Utensil Pen Cap', './img/pen.jpg');
+new ProductImage('Pet Paw Sweeper', './img/pet-sweep.jpg');
+new ProductImage('Pizza Serving Scissors', './img/sweep.png');
+new ProductImage('Shark Sleeping Bag', './img/shark.jpg');
+new ProductImage('Baby Sweeper Onesie', './img/sweep.png');
+new ProductImage('Tauntaun Sleeping Bag', './img/tauntaun.jpg');
+new ProductImage('Unicorn Meat', './img/unicorn.jpg');
+new ProductImage('USB Tenticle', './img/usb.gif');
+new ProductImage('Self-Watering Can', './img/water-can.jpg');
+new ProductImage('Wine Pod Glass', './img/wine-glass.jpg');
 
 pickNewImages();
