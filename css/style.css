@@ -1,0 +1,90 @@
+/* outline: 1px dotted black */
+
+* {
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+header {
+  height: 150px;
+  background-color: gray;
+}
+
+#logo {
+  float: left;
+  margin: 15px;
+}
+
+#bizname {
+  margin: 50px 0px 0px 0px;
+  text-align: left;
+  float: left;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+main {
+  height: 600px;
+}
+
+#div-voteresults {
+  margin: 0px 30px 0px 30px;
+  height: 500px; 
+  /* width: 25%; */
+  float: left;
+  border: 1px solid black;
+  padding: 15px; 
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#ul-voteresults {
+
+}
+
+ul > li {
+  font-size: .8em;
+  line-height: 1.7em;
+}
+
+#div-images {
+  height: 500px;
+  margin-top: 30px;
+}
+
+#img01, #img02, #img03 {
+  border: 1px solid gray;
+  margin: 5px;
+}
+
+#img01 {
+
+}
+
+#img02 {
+
+}
+
+#img03 {
+
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.2em;
+  margin-top: 15px;
+}
+
+footer {
+  height: 100px;
+  background-color: gray;
+}
+
