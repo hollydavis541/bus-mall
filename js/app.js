@@ -56,7 +56,8 @@ var pickNewImages = function(){
 // Event Handler
 var handleClickOnImg = function(event){
 
-  if(totalClicks < 26) {
+//TODO: Change totalClicks to 26 later
+  if(totalClicks < 5) {
     var thingWeClickedOn = event.target;
     var id = thingWeClickedOn.id;
 
