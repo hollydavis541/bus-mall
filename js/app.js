@@ -2,15 +2,14 @@
 
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
-console.log(img01Tag);
 var img02Tag = document.getElementById('img02');
 var img03Tag = document.getElementById('img03');
 
 var totalClicks = 0;
 
-var img01OnThePage = null;
-var img02OnThePage = null;
-var img03OnThePage = null;
+// var img01OnThePage = null;
+// var img02OnThePage = null;
+// var img03OnThePage = null;
 
 var ProductImage = function(name, imgURL){
   this.name = name;
@@ -56,7 +55,7 @@ var pickNewImages = function(){
 // Event Handler
 var handleClickOnImg = function(event){
 
-//TODO: Change totalClicks to 26 later
+  //TODO: Change totalClicks to 26 later
   if(totalClicks < 5) {
     var thingWeClickedOn = event.target;
     var id = thingWeClickedOn.id;
