@@ -7,14 +7,15 @@ var img03Tag = document.getElementById('img03');
 
 var totalClicks = 0;
 
-// var img01OnThePage = null;
-// var img02OnThePage = null;
-// var img03OnThePage = null;
+// VIDEO: review video to better understand what null is doing
+var img01OnThePage = null;
+var img02OnThePage = null;
+var img03OnThePage = null;
 
 var ProductImage = function(name, imgURL){
   this.name = name;
   this.clicks = 0;
-  // number of times the image appears during the process (will need this in order to calculate percentage)
+  // number of times the image appears during the process (I think we will need this in order to calculate percentage)
   this.timesShown = 0;
   this.imgURL = imgURL;
 
