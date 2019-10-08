@@ -2,12 +2,12 @@
 
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
-console.log(img01Tag);
 var img02Tag = document.getElementById('img02');
 var img03Tag = document.getElementById('img03');
 
 var totalClicks = 0;
 
+// VIDEO: review video to better understand what null is doing
 var img01OnThePage = null;
 var img02OnThePage = null;
 var img03OnThePage = null;
@@ -15,7 +15,7 @@ var img03OnThePage = null;
 var ProductImage = function(name, imgURL){
   this.name = name;
   this.clicks = 0;
-  // number of times the image appears during the process (will need this in order to calculate percentage)
+  // number of times the image appears during the process (I think we will need this in order to calculate percentage)
   this.timesShown = 0;
   this.imgURL = imgURL;
 
@@ -40,11 +40,8 @@ var pickNewImages = function(){
   //TODO: Figure out how to add a third item into this cycle
   do {
     var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img02Index);
-
-  do {
     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img03Index);
+  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
 
   img01OnThePage = ProductImage.allImages[img01Index];
   img02OnThePage = ProductImage.allImages[img02Index];
@@ -56,8 +53,8 @@ var pickNewImages = function(){
 // Event Handler
 var handleClickOnImg = function(event){
 
-//TODO: Change totalClicks to 26 later
-  if(totalClicks < 5) {
+  //TODO: Change totalClicks to 26 later
+  if(totalClicks < 20) {
     var thingWeClickedOn = event.target;
     var id = thingWeClickedOn.id;
 
