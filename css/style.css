@@ -1,8 +1,5 @@
 /* outline: 1px dotted black */
 
-* {
-}
-
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -46,9 +43,9 @@ h2 {
   margin-bottom: 10px;
 }
 
-#ul-voteresults {
+/* #ul-voteresults {
 
-}
+} */
 
 ul > li {
   font-size: .8em;
@@ -66,7 +63,7 @@ ul > li {
   margin: 5px;
   width: 200px;
 }
-
+/* 
 #img01 {
 
 }
@@ -77,7 +74,7 @@ ul > li {
 
 #img03 {
 
-}
+} */
 
 p {
   font-size: 1em;

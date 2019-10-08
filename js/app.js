@@ -31,12 +31,11 @@ var pickNewImages = function(){
   do {
     var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index) {
-    img01OnThePage = ProductImage.allImages[img01Index];
-    img02OnThePage = ProductImage.allImages[img02Index];
-    img03OnThePage = ProductImage.allImages[img03Index];
-    renderNewImages(img01Index, img02Index, img03Index);
-  }  
+  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
+  img01OnThePage = ProductImage.allImages[img01Index];
+  img02OnThePage = ProductImage.allImages[img02Index];
+  img03OnThePage = ProductImage.allImages[img03Index];
+  renderNewImages(img01Index, img02Index, img03Index);
 };
 
 var handleClickOnImg = function(event){
