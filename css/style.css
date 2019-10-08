@@ -25,9 +25,9 @@ h1 {
   font-size: 2em;
 }
 
-main {
+/* main {
   height: 600px;
-}
+} */
 
 #div-voteresults {
   margin: 0px 30px 0px 30px;
@@ -53,9 +53,7 @@ ul > li {
 }
 
 #div-images {
-  
-  height: 500px;
-  margin-top: 30px;
+  margin-top: 30px; 
 }
 
 #img01, #img02, #img03 {
@@ -80,6 +78,13 @@ p {
   font-size: 1em;
   line-height: 1.2em;
   margin-top: 15px;
+}
+
+#div-chart {
+  width: 700px;
+  height: 900px;
+  margin-left: 375px;
+  display: block;
 }
 
 footer {
