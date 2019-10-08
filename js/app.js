@@ -1,13 +1,11 @@
 'use strict';
 
-var rounds = 3;
+var rounds = 25;
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
 var img02Tag = document.getElementById('img02');
 var img03Tag = document.getElementById('img03');
-
 var totalClicks = 0;
-
 var img01OnThePage = null;
 var img02OnThePage = null;
 var img03OnThePage = null;
@@ -17,21 +15,10 @@ var ProductImage = function(name, imgURL){
   this.clicks = 0;
   this.timesShown = 0;
   this.imgURL = imgURL;
-  // array (below) will contain all objects eventually needed
   ProductImage.allImages.push(this);
 };
 
-//TODO: Create working percentage function
-ProductImage.prototype.getPercentOfShown = function(){
-  // this object's total clicks
-  // this object's total shown
-  // format it as a percentage
-  // return (or possibly write it into a property of the object)
-  // this data is available within the array of objects
-};
-
 ProductImage.allImages = [];
-console.log(ProductImage.allImages);
 
 var renderNewImages = function(img01Index, img02Index, img03Index){
   img01Tag.src = ProductImage.allImages[img01Index].imgURL;
@@ -44,16 +31,16 @@ var pickNewImages = function(){
   do {
     var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
-  img01OnThePage = ProductImage.allImages[img01Index];
-  img02OnThePage = ProductImage.allImages[img02Index];
-  img03OnThePage = ProductImage.allImages[img03Index];
-  renderNewImages(img01Index, img02Index, img03Index);
+  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index) {
+    img01OnThePage = ProductImage.allImages[img01Index];
+    img02OnThePage = ProductImage.allImages[img02Index];
+    img03OnThePage = ProductImage.allImages[img03Index];
+    renderNewImages(img01Index, img02Index, img03Index);
+  }  
 };
 
 var handleClickOnImg = function(event){
   var ul = document.getElementById('ul-voteresults');
-  //TODO: Change totalClicks to 26 later
   if(totalClicks < rounds) {
     var imageClicked = event.target;
     var id = imageClicked.id;
@@ -81,12 +68,11 @@ var handleClickOnImg = function(event){
       liData.textContent = `${ProductImage.allImages[i].name}: ${ProductImage.allImages[i].clicks} total clicks`;
       ul.appendChild(liData);
     }
-    console.log(totalClicks);
   }
 };
 
 
-imgDivTag.addEventListener('click', handleClickOnImg); // second parameter is the function above
+imgDivTag.addEventListener('click', handleClickOnImg);
 
 new ProductImage('R2-D2 Suitcase', './img/bag.jpg');
 new ProductImage('Banana Slicer', './img/banana.jpg');
@@ -110,3 +96,4 @@ new ProductImage('Self-Watering Can', './img/water-can.jpg');
 new ProductImage('Wine Pod Glass', './img/wine-glass.jpg');
 
 pickNewImages();
+
