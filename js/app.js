@@ -40,11 +40,8 @@ var pickNewImages = function(){
   //TODO: Figure out how to add a third item into this cycle
   do {
     var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img02Index);
-
-  do {
     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img03Index);
+  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
 
   img01OnThePage = ProductImage.allImages[img01Index];
   img02OnThePage = ProductImage.allImages[img02Index];
@@ -57,7 +54,7 @@ var pickNewImages = function(){
 var handleClickOnImg = function(event){
 
   //TODO: Change totalClicks to 26 later
-  if(totalClicks < 5) {
+  if(totalClicks < 20) {
     var thingWeClickedOn = event.target;
     var id = thingWeClickedOn.id;
 
