@@ -34,38 +34,12 @@ var pickNewImages = function(){
     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
   } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
 
-  // we want to caputre these 3 indexes in an array previousImagesArray
-  // next time you come around, you have that in store, so before randomization do...
-  // var newSetToRandomize = [ArrayofObjects-3--a set sans the 3 you just used]
-  // we'll look at a solution tomorrow
-
   img01OnThePage = ProductImage.allImages[img01Index];
   img02OnThePage = ProductImage.allImages[img02Index];
   img03OnThePage = ProductImage.allImages[img03Index];
-  // Store in Array for comparison next time
-  var imagesArray = [img01OnThePage, img02OnThePage, img03OnThePage];
-  console.log(imagesArray);
 
   renderNewImages(img01Index, img02Index, img03Index);
 };
-
-/*
-
-  for (var i = 0; i < Product.allImages.length; i++) {
-    Product.allImages[i].previouslyShown = false;
-  }
-
-  leftImgOnThePage = Product.allImages[leftIndex];
-  rightImgOnThePage = Product.allImages[rightIndex];
-  middleImgOnThePage = Product.allImages[middleIndex];
-
-  Product.allImages[leftIndex].previouslyShown = true;
-  Product.allImages[rightIndex].previouslyShown = true;
-  Product.allImages[middleIndex].previouslyShown = true;
-
-  renderNewImages(leftIndex, rightIndex, middleIndex);
-};
-*/
 
 var handleClickOnImg = function(event){
   var ul = document.getElementById('ul-voteresults');
@@ -131,7 +105,7 @@ pickNewImages();
 var genLabels = function(images) {
   var labelsArr = [];
   for (var i=0; i < images.length; i++){
-    labelsArr.push([images[i].name + ' votes']);
+    labelsArr.push(images[i].name);
   }
   return labelsArr;
 };
@@ -212,26 +186,26 @@ function makeChart(){
         label: 'Appearances',
         data: genData02(ProductImage.allImages),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(255, 159, 64, 0.6)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
