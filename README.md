@@ -6,6 +6,6 @@ _A site that the BusMall startup is using for market research to help determine 
 
 - Lab15
 - Lab14
-- Lab13
+- Lab13 - Adding Persistence
 - Lab12 - Adding a Chart
 - Lab11 - Basic Site Structure and Image Voting
