@@ -11,15 +11,21 @@ var img02OnThePage = null;
 var img03OnThePage = null;
 
 var ProductImage = function(name, imgURL){
-  this.imgURL = imgURL;
   this.name = name;
+  this.imgURL = imgURL;
   this.clicks = 0;
   this.timesShown = 0;
   this.previouslyShown = false;
   ProductImage.allImages.push(this);
+  // updateLocalStorage();
 };
 
 ProductImage.allImages = [];
+
+function updateLocalStorage(){
+  var arrString = JSON.stringify(ProductImage.allImages);
+  localStorage.setItem('products', arrString);
+}
 
 var renderNewImages = function(img01Index, img02Index, img03Index){
   img01Tag.src = ProductImage.allImages[img01Index].imgURL;
@@ -74,6 +80,7 @@ var handleClickOnImg = function(event){
     alert('Thank you for participating!');
     imageClicked.removeEventListener('click', handleClickOnImg);
     makeChart();
+    updateLocalStorage();
   }
 };
 
