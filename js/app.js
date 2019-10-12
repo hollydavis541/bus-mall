@@ -17,7 +17,6 @@ var ProductImage = function(name, imgURL){
   this.timesShown = 0;
   this.previouslyShown = false;
   ProductImage.allImages.push(this);
-  updateLocalStorage();
 };
 
 ProductImage.allImages = [];
@@ -25,6 +24,15 @@ ProductImage.allImages = [];
 function updateLocalStorage(){
   var arrString = JSON.stringify(ProductImage.allImages);
   localStorage.setItem('products', arrString);
+}
+
+// Credit: Trevor Thompson
+function retrieveLocalStorage() {
+  var localData = localStorage.getItem('products');
+  var productData = JSON.parse(localData);
+  if (productData !== null) {
+    ProductImage.allImages = productData;
+  }
 }
 
 var renderNewImages = function(img01Index, img02Index, img03Index){
@@ -87,7 +95,6 @@ var handleClickOnImg = function(event){
     }
   }
   totalClicks ++;
-
   if(totalClicks === rounds) {
     for (var i = 0; i < ProductImage.allImages.length; i++) {
       var liData = document.createElement('li');
@@ -126,6 +133,7 @@ new ProductImage('Self-Watering Can', './img/water-can.jpg');
 new ProductImage('Wine Pod Glass', './img/wine-glass.jpg');
 
 pickNewImages();
+retrieveLocalStorage();
 
 var genLabels = function(images) {
   var labelsArr = [];
@@ -263,6 +271,7 @@ function makeChart(){
         yAxes: [{
           ticks: {
             beginAtZero: true,
+            // Found stepSize info at https://www.chartjs.org/docs/latest/axes/cartesian/linear.html
             stepSize: 1
           }
         }]
