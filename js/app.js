@@ -1,6 +1,6 @@
 'use strict';
 
-var rounds = 7;
+var rounds = 25;
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
 var img02Tag = document.getElementById('img02');
@@ -17,7 +17,7 @@ var ProductImage = function(name, imgURL){
   this.timesShown = 0;
   this.previouslyShown = false;
   ProductImage.allImages.push(this);
-  // updateLocalStorage();
+  updateLocalStorage();
 };
 
 ProductImage.allImages = [];
@@ -33,17 +33,42 @@ var renderNewImages = function(img01Index, img02Index, img03Index){
   img03Tag.src = ProductImage.allImages[img03Index].imgURL;
 };
 
-var pickNewImages = function(){
-  var img01Index = Math.ceil(Math.random() * ProductImage.allImages.length -1);
-  do {
-    var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-    var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-  } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
+// Credit for putting the randomizer into it's own function: Travis Skyles
+var randomizer = function(){
+  return Math.ceil(Math.random() * ProductImage.allImages.length -1);
+};
 
+// var pickNewImages = function(){
+//   var img01Index = Math.ceil(Math.random() * ProductImage.allImages.length -1);
+//   do {
+//     var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
+//     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
+//   } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
+
+
+var pickNewImages = function(){
+  // Credit: I reworked this function to check against the previous set of pictures baded on Travis Skyle's solution
+  var img01Index = randomizer();
+  var img02Index = randomizer();
+  var img03Index = randomizer();
+  while(ProductImage.allImages[img01Index].wasShown){
+    img01Index = randomizer();
+  }
+  while (img03Index === img01Index || ProductImage.allImages[img03Index].wasShown){
+    img03Index = randomizer();
+  }
+  while(img01Index === img02Index || img02Index === img03Index || ProductImage.allImages[img02Index].wasShown){
+    img02Index = randomizer();
+  }
+  for(var i = 0; i < ProductImage.allImages.length; i++){
+    ProductImage.allImages[i].wasShown = false;
+  }
   img01OnThePage = ProductImage.allImages[img01Index];
   img02OnThePage = ProductImage.allImages[img02Index];
   img03OnThePage = ProductImage.allImages[img03Index];
-
+  ProductImage.allImages[img01Index].wasShown = true;
+  ProductImage.allImages[img02Index].wasShown = true;
+  ProductImage.allImages[img03Index].wasShown = true;
   renderNewImages(img01Index, img02Index, img03Index);
 };
 
