@@ -38,16 +38,9 @@ var randomizer = function(){
   return Math.ceil(Math.random() * ProductImage.allImages.length -1);
 };
 
-// var pickNewImages = function(){
-//   var img01Index = Math.ceil(Math.random() * ProductImage.allImages.length -1);
-//   do {
-//     var img02Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-//     var img03Index = Math.ceil(Math.random() * ProductImage.allImages.length-1);
-//   } while(img01Index === img03Index || img01Index === img02Index || img03Index === img02Index);
-
 
 var pickNewImages = function(){
-  // Credit: I reworked this function to check against the previous set of pictures baded on Travis Skyle's solution
+  // Credit: I refactored this function to check against the previous set of pictures based on Travis Skyle's solution
   var img01Index = randomizer();
   var img02Index = randomizer();
   var img03Index = randomizer();
