@@ -1,11 +1,11 @@
 'use strict';
 
-var rounds = 25;
+var rounds = 27;
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
 var img02Tag = document.getElementById('img02');
 var img03Tag = document.getElementById('img03');
-var totalClicks = 0;
+var totalClicks = 1;
 var img01OnThePage = null;
 var img02OnThePage = null;
 var img03OnThePage = null;
@@ -17,15 +17,29 @@ var ProductImage = function(name, imgURL){
   this.timesShown = 0;
   this.previouslyShown = false;
   ProductImage.allImages.push(this);
-  updateLocalStorage();
 };
 
 ProductImage.allImages = [];
 
-function updateLocalStorage(){
-  var arrString = JSON.stringify(ProductImage.allImages);
-  localStorage.setItem('products', arrString);
-}
+// Credit: Inspired by Mark Swearingen's solution for tracking what click number the user was on and the product data up to that point
+var updateLocalStorage = function(){
+  var allProductsLS = JSON.stringify(ProductImage.allImages);
+  localStorage.setItem('currentProductData', allProductsLS);
+  var totalClicksLS = JSON.stringify(totalClicks);
+  localStorage.setItem('currentClickCount', totalClicksLS);
+};
+
+// Credit: Mashup of ideas from Trevor Thompson's function and Mark Swearingen's function
+var retrieveLocalStorage = function(){
+  var productData = JSON.parse(localStorage.getItem('currentProductData'));
+  if (productData !== null) {
+    ProductImage.allImages = productData;
+  }
+  var clicksCount = JSON.parse(localStorage.getItem('currentClickCount'));
+  if (clicksCount < rounds) {
+    totalClicks = clicksCount + 1;
+  }
+};
 
 var renderNewImages = function(img01Index, img02Index, img03Index){
   img01Tag.src = ProductImage.allImages[img01Index].imgURL;
@@ -67,6 +81,9 @@ var pickNewImages = function(){
 
 var handleClickOnImg = function(event){
   var ul = document.getElementById('ul-voteresults');
+  if(totalClicks > rounds - 2) {
+    imgDivTag.removeEventListener('click', handleClickOnImg);
+  }
   if(totalClicks < rounds) {
     var imageClicked = event.target;
     var id = imageClicked.id;
@@ -86,8 +103,8 @@ var handleClickOnImg = function(event){
       pickNewImages();
     }
   }
+  updateLocalStorage();
   totalClicks ++;
-
   if(totalClicks === rounds) {
     for (var i = 0; i < ProductImage.allImages.length; i++) {
       var liData = document.createElement('li');
@@ -96,9 +113,8 @@ var handleClickOnImg = function(event){
       ul.appendChild(liData);
     }
     alert('Thank you for participating!');
-    imageClicked.removeEventListener('click', handleClickOnImg);
     makeChart();
-    updateLocalStorage();
+    localStorage.clear(); // Credit: Travis Skyles
   }
 };
 
@@ -126,6 +142,7 @@ new ProductImage('Self-Watering Can', './img/water-can.jpg');
 new ProductImage('Wine Pod Glass', './img/wine-glass.jpg');
 
 pickNewImages();
+retrieveLocalStorage();
 
 var genLabels = function(images) {
   var labelsArr = [];
@@ -263,6 +280,7 @@ function makeChart(){
         yAxes: [{
           ticks: {
             beginAtZero: true,
+            // Found stepSize info at https://www.chartjs.org/docs/latest/axes/cartesian/linear.html
             stepSize: 1
           }
         }]
