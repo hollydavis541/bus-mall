@@ -59,7 +59,8 @@ ul > li {
 #img01, #img02, #img03 {
   border: 1px solid gray;
   margin: 5px;
-  width: 200px;
+  width: 250px;
+  background: white;
 }
 /* 
 #img01 {
