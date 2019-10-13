@@ -1,5 +1,6 @@
 'use strict';
 
+// Sets rounds -- The user experiences 25 rounds, but this is set to 27 to account for adjustments in code below
 var rounds = 27;
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
@@ -10,6 +11,7 @@ var img01OnThePage = null;
 var img02OnThePage = null;
 var img03OnThePage = null;
 
+// Product Constructor
 var ProductImage = function(name, imgURL){
   this.name = name;
   this.imgURL = imgURL;
@@ -19,6 +21,7 @@ var ProductImage = function(name, imgURL){
   ProductImage.allImages.push(this);
 };
 
+// Array of properties from constructor above
 ProductImage.allImages = [];
 
 // Credit: Inspired by Mark Swearingen's solution for tracking what click number the user was on and the product data up to that point
@@ -52,9 +55,8 @@ var randomizer = function(){
   return Math.ceil(Math.random() * ProductImage.allImages.length -1);
 };
 
-
+// Credit: I refactored this function to check against the previous set of pictures based on Travis Skyle's solution
 var pickNewImages = function(){
-  // Credit: I refactored this function to check against the previous set of pictures based on Travis Skyle's solution
   var img01Index = randomizer();
   var img02Index = randomizer();
   var img03Index = randomizer();
@@ -144,6 +146,7 @@ new ProductImage('Wine Pod Glass', './img/wine-glass.jpg');
 pickNewImages();
 retrieveLocalStorage();
 
+// Chart Generator
 var genLabels = function(images) {
   var labelsArr = [];
   for (var i=0; i < images.length; i++){

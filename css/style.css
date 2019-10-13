@@ -81,7 +81,7 @@ ul>li {
 }
 
 #h2-instructions {
-  padding-top: 20px; 
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -106,7 +106,7 @@ ul>li {
   line-height: 2em;
 }
 
-#p-images > a {
+#p-images>a {
   color: black;
   font-weight: bold;
 }
