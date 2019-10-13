@@ -6,16 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BusMall</title>
+  <link rel="icon" href="./img/busicon.png">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <div id="logo">
-      <img id="logo" src="http://via.placeholder.com/200x100" alt="">
+    <div id="div-logo">
+
+      <img id="logo" src="img/busicon.png" alt="">
       <h1 id="bizname">BusMall</h1>
     </div>
+    <p id="p-logo">Unique gift shopping from the comfort of your seat!</p>
+
+    <nav class="nav">
+      <ul id="ul-nav">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./index.html">Shop</a></li>
+        <li><a href="./index.html">Research</a></li>
+        <li><a href="./index.html">Blog</a></li>
+        <li><a href="./index.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <div id="div-voteresults">
@@ -25,23 +39,28 @@
       </ul>
     </div>
     <div id="div-images">
-      <h2>Please click on the product you are most likely to purchase:</h2>
+      <h2 id="h2-instructions">Please click on the product you are most likely to purchase:</h2>
       <img id="img01" src="" alt="">
       <img id="img02" src="" alt="">
       <img id="img03" src="" alt="">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Eros in cursus turpis massa tincidunt. Leo integer malesuada nunc vel risus commodo. Vitae tortor
-        condimentum lacinia quis vel. Magnis dis parturient montes nascetur ridiculus. Tempor orci eu lobortis elementum
-        nibh tellus molestie nunc. Ante metus dictum at tempor. Id cursus metus aliquam eleifend. Facilisi morbi tempus
-        iaculis urna. Nec ultrices dui sapien eget mi. Pellentesque sit amet porttitor eget dolor morbi non. Adipiscing
-        at in tellus integer feugiat scelerisque varius morbi enim. Vitae nunc sed velit dignissim. Nibh tortor id
-        aliquet lectus proin nibh nisl. Vitae suscipit tellus mauris a diam maecenas sed enim ut.</p>
+      <p id="p-images">"Yeah!" or "meh"? Here at BusMall, we value your opinion and want to carry only products that
+        will delight our customers. Please choose your favorite product from each image set (it should take about a
+        minute to go through the sets). Please don't overthink it, simply go with your gut reaction on which one you
+        would be most likely to purchase for yourself or as a gift. We greatly appreciate your time! As a thank you,
+        once you've completed this task, please go <a href="./index.html">here</a> to provide your email adress if you
+        would like a $5 credit that you may use toward any BusMall purchase.
+      </p>
     </div>
     <div id="div-chart">
-      <canvas id="canvas-chart" width="400" height="400"></canvas>
+      <canvas id="canvas-chart"></canvas>
     </div>
   </main>
   <footer>
+    <div id="div-copyright">
+      <p id="p-copyright">&copy 2019 Optimistic Panini Designs<br><br>Bus icon made by <a
+          href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
+          href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</p>
+    </div>
   </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>

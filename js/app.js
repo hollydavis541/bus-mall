@@ -1,5 +1,6 @@
 'use strict';
 
+// Sets rounds -- The user experiences 25 rounds, but this is set to 27 to account for adjustments in code below
 var rounds = 27;
 var imgDivTag = document.getElementById('div-images');
 var img01Tag = document.getElementById('img01');
@@ -10,6 +11,7 @@ var img01OnThePage = null;
 var img02OnThePage = null;
 var img03OnThePage = null;
 
+// Product Constructor
 var ProductImage = function(name, imgURL){
   this.name = name;
   this.imgURL = imgURL;
@@ -19,6 +21,7 @@ var ProductImage = function(name, imgURL){
   ProductImage.allImages.push(this);
 };
 
+// Array of properties from constructor above
 ProductImage.allImages = [];
 
 // Credit: Inspired by Mark Swearingen's solution for tracking what click number the user was on and the product data up to that point
@@ -52,9 +55,8 @@ var randomizer = function(){
   return Math.ceil(Math.random() * ProductImage.allImages.length -1);
 };
 
-
+// Credit: I refactored this function to check against the previous set of pictures based on Travis Skyle's solution
 var pickNewImages = function(){
-  // Credit: I refactored this function to check against the previous set of pictures based on Travis Skyle's solution
   var img01Index = randomizer();
   var img02Index = randomizer();
   var img03Index = randomizer();
@@ -144,6 +146,7 @@ new ProductImage('Wine Pod Glass', './img/wine-glass.jpg');
 pickNewImages();
 retrieveLocalStorage();
 
+// Chart Generator
 var genLabels = function(images) {
   var labelsArr = [];
   for (var i=0; i < images.length; i++){
@@ -179,26 +182,26 @@ function makeChart(){
         label: 'Votes',
         data: genData01(ProductImage.allImages),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -220,7 +223,7 @@ function makeChart(){
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(153, 102, 255, 1)'
         ],
         borderWidth: 1
       },
@@ -228,26 +231,26 @@ function makeChart(){
         label: 'Appearances',
         data: genData02(ProductImage.allImages),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(255, 159, 64, 0.6)'
+          'rgba(255, 99, 132, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(255, 206, 86, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(153, 102, 255, 0.4)',
+          'rgba(255, 99, 132, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(255, 206, 86, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(153, 102, 255, 0.4)',
+          'rgba(255, 99, 132, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(255, 206, 86, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(153, 102, 255, 0.4)',
+          'rgba(255, 99, 132, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(255, 206, 86, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(153, 102, 255, 0.4)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -269,7 +272,7 @@ function makeChart(){
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(153, 102, 255, 1)'
         ],
         borderWidth: 1
       }
